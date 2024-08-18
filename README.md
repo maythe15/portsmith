@@ -71,16 +71,17 @@ The `properties` field, the tags `removed` and `added` fields, and the `tags` fi
 ## Port discovery
 Reserved ports can be discovered through the `/discover [GET]` route.  
 Ports can be filtered using `tag` parameters. For example, `/discover?tag=tag1&tag=tag2` will only return ports with both `tag1` and `tag2`.  
-By default, `/discover` will only return the filtered port numbers. Passing in `detailed=1` will cause it to detailed information about all returned ports in the following format:
+By default, `/discover` will only return the filtered port numbers. Passing in `detailed=1` will cause it to detailed information about all returned ports.  
+For example, here is a `/discover` call return with one empty port:
 ```json
 {
   "detailed": {
-    PORT: {
+    "55001": {
       "properties": {},
       "tags": []
     }
   },
-  "ports": []
+  "ports": [55001]
 }
 ```
 
