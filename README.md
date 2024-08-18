@@ -96,3 +96,20 @@ This will reserve the next unreserved port and return it in the form `{"port":po
 
 ### /ping [GET]
 This returns `ok` if the portsmith server is running.
+
+## Running portsmith
+Portsmith can be started either through python, or through the commandline.
+
+### python
+Portsmith provides the `Portsmith` class, along with two utulity functions, `makebase` and `dbexists`.
+
+`makebase` takes a path, and creates a portsmith database there.  
+`dbexists` takes a path, and returns `True` if a database exists there.
+
+The `Portsmith` class takes a path to use as the database. Once you have an instance of `Portsmith`, run the `start` function to start the server.
+
+### CLI
+The portsmith CLI is split into two simple parts: `create` and `start`.
+
+`portsmith create` is functionally identical to the python `makebase` function. It optionally takes a DB path. By default, it creates the database at `portsmith.db`.  
+`portsmith start` starts an instance of the portsmith server. It optionally takes a DB path. By default, it uses the database at `portsmith.db`. It also optionally takes a server logging level. By default, this is `CRITICAL`.
